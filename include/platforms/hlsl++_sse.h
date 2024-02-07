@@ -2,16 +2,12 @@
 
 #if defined(__clang__) || defined(__GNUG__)
 
-#ifdef __EMSCRIPTEN__
-	
-	// NOTE Requires additional CMAKE_CXX_FLAGS: -msse4.2 -msimd128
-	//#include <wasm_simd128.h>
-	//#include <xmmintrin.h>
-	//#include <emmintrin.h>
-	#include <smmintrin.h>			
+	#if defined(__EMSCRIPTEN__)
+		// NOTE requires additional CMAKE_CXX_FLAGS to compile: -msse4.2 -msimd128
+		#include <smmintrin.h>			
 	#else
-	#include <x86intrin.h>
-#endif
+		#include <x86intrin.h>
+	#endif
 
 #elif defined(_MSC_VER)
 
