@@ -600,7 +600,7 @@ namespace hlslpp
 			n256 vec0;
 			float f32_256_0[8];
 			float4 row0;
-
+#ifndef __GNUC__ // FIXME 
 			HLSLPP_WARNING_ANONYMOUS_STRUCT_UNION_BEGIN
 			struct
 			{
@@ -621,13 +621,14 @@ namespace hlslpp
 				};
 			};
 			HLSLPP_WARNING_ANONYMOUS_STRUCT_UNION_END
+#endif			
 		};
 
 		union
 		{
 			n256 vec1;
 			float f32_256_1[8];
-
+#ifndef __GNUC__ // FIXME 
 			HLSLPP_WARNING_ANONYMOUS_STRUCT_UNION_BEGIN
 			struct
 			{
@@ -648,6 +649,7 @@ namespace hlslpp
 				};
 			};
 			HLSLPP_WARNING_ANONYMOUS_STRUCT_UNION_END
+#endif			
 		};
 #else
 
